@@ -4,8 +4,8 @@ repository: "appolon1908/Codestra-Device-Forge"
 canonical_url: "https://github.com/appolon1908/Codestra-Device-Forge"
 default_branch_observed: "main"
 classification:
-  type: "application"
-  subtype: "general"
+  type: "developer-platform"
+  subtype: "device-lab"
   standalone: true
   integration_boundary: "api-or-endpoint"
 lifecycle:
