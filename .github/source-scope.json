@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "repository": "appolon1908/Codestra-Device-Forge",
+  "scope": "documentation-contract-only",
+  "application_source_allowed": false,
+  "baseline_files": [
+    ".github/copilot-instructions.md",
+    ".gitignore",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "README.md",
+    "docker-compose.yml",
+    "docs/ARCHITECTURE-CHARTS.md",
+    "docs/MASTER_MISSION.md"
+  ],
+  "authority_hashes": {
+    ".github/copilot-instructions.md": "0b23757396e67c86f1e1fcfeaf85667885b1e7ccef3b70355bfb7b7f89c61e2c",
+    "AGENTS.md": "baf8dae57e38dab28efe7864f9ad5804842aa72363cae6c65056aab079bf2b1b"
+  },
+  "required_text": {},
+  "structured_files": {
+    "docker-compose.yml": {
+      "services": {
+        "api": {
+          "image": "python:3.12-slim",
+          "working_dir": "/app",
+          "volumes": [
+            "./:/app"
+          ],
+          "command": "python -m http.server 8080",
+          "ports": [
+            "127.0.0.1:8080:8080"
+          ]
+        }
+      }
+    },
+    "governance/interim-release-policy.json": {
+      "schema_version": 1,
+      "policy_kind": "source_merge",
+      "repository": "appolon1908/Codestra-Device-Forge",
+      "authorization_date": "2026-11-02",
+      "required_checks": [
+        {
+          "context": "documentation-contract-source",
+          "integration_id": 15368,
+          "workflow": ".github/workflows/source-scope.yml"
+        }
+      ],
+      "replaces_contexts": [
+        "codestra-control-plane",
+        "codestra/control-plane"
+      ],
+      "preserve": [
+        "other_required_checks",
+        "review_requirements",
+        "ref_conditions",
+        "bypass_actors",
+        "enforcement",
+        "force_push_protection",
+        "deletion_protection",
+        "deployment_authority"
+      ],
+      "production_activation_authorized": false,
+      "note": "GitHub rulesets remain the enforcement authority. Documentation/contract-only validation denies application sources until vetted product CI is separately reviewed; it does not certify runtime or authorize deployment."
+    }
+  }
+}
